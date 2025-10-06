@@ -1,0 +1,105 @@
+/* Minimal TELUS-styled UI: purple & white */
+:root{--telus-purple:#4B286D;--white:#ffffff}
+*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin:0;padding:0}
+body.purple-bg{background:var(--telus-purple);color:var(--white);min-height:100vh}
+.container{max-width:900px;margin:30px auto;padding:0 16px}
+.card.minimal{background:var(--white);color:#0b0b0b;padding:22px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.card-header{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.card-logo{height:56px;width:auto;border-radius:4px;border:1px solid rgba(0,0,0,0.04);background:#fff;padding:6px}
+.card-title{font-size:24px;margin:0}
+label{display:block;margin-top:10px;font-size:14px;color:#111}
+select,input[type=file]{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px;background:#fff}
+.actions{margin-top:14px}
+button.primary{background:var(--telus-purple);color:var(--white);padding:10px 14px;border-radius:8px;border:none;font-weight:600;cursor:pointer}
+#status{margin-top:10px;font-size:14px;color:#333}
+@media(max-width:600px){.card-logo{height:44px}.container{padding:0 12px}}
+
+
+/* Tagline styling under DeckLingo AI */
+
+
+
+/* Centered header, logo, and tagline styling */
+.branding {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.branding img {
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  height: 60px;
+}
+.branding h1 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #3b0a45;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+.branding 
+
+
+
+
+.card-header { /* ensure header area centers its content */ }
+.branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.branding img, .card-logo {
+  display: block;
+  margin: 0 auto;
+  height: 72px;
+  width: auto;
+  border-radius: 6px;
+  background: #fff;
+  padding: 6px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.brand-title {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #24102a;
+  margin: 0;
+  letter-spacing: 0.4px;
+}
+
+
+
+
+
+.branding { text-align: center; margin-bottom: 1.25rem; }
+.brand-row { display: inline-flex; align-items: center; gap: 18px; }
+.card-logo { height: 76px; width: auto; border-radius: 8px; padding: 6px; background: #fff; border: 1px solid rgba(0,0,0,0.06); }
+.brand-title { font-family: 'DM Sans', 'Nunito Sans', sans-serif; font-weight: 700; font-size: 2.6rem; margin: 0; color: #39B54A; letter-spacing: 0.6px; }
+
+@media (max-width: 640px) { .brand-row { flex-direction: column; gap: 8px; } .brand-title { font-size: 1.6rem; } .card-logo { height: 60px; } }
+
+
+
+:root{--telus-purple:#4B286D;--white:#ffffff;--accent-green:#39B54A}
+*{box-sizing:border-box}
+body{font-family:DM Sans, 'Nunito Sans', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin:0;padding:0}
+body.purple-bg{background:var(--telus-purple);color:var(--white);min-height:100vh}
+.container{max-width:1100px;margin:30px auto;padding:0 24px}
+.card.minimal{background:var(--white);color:#0b0b0b;padding:28px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12)}
+.card-header{display:block;margin-bottom:18px;padding-bottom:6px;border-bottom:none}
+.branding{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}
+.brand-row{display:flex;align-items:center;gap:20px;justify-content:center}
+.card-logo{height:72px;width:auto;border-radius:8px;padding:6px;background:#fff;border:1px solid rgba(0,0,0,0.06)}
+.brand-title{font-family:'DM Sans','Nunito Sans',sans-serif;font-weight:700;font-size:2.6rem;margin:0;color:var(--accent-green);letter-spacing:0.4px}
+
+label{display:block;margin-top:18px;font-size:15px;color:#222}
+select,input[type=file]{width:100%;padding:14px;border-radius:10px;border:1px solid rgba(0,0,0,0.08);background:#fff}
+button{background:var(--telus-purple);color:#fff;padding:12px 20px;border-radius:10px;border:none;font-weight:600}
+@media (max-width:640px){.brand-row{flex-direction:column}.brand-title{font-size:1.6rem}.card-logo{height:56px}}
+
+
+.tagline{font-family:'Nunito Sans','DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:#666;margin:0}
