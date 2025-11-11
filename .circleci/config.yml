@@ -46,7 +46,7 @@ jobs:
     parameters:
       svc:
         type: string
-        #default: "shm"
+        default: "decklingo"
     working_directory: ~/project
     environment:
       TZ: "/usr/share/zoneinfo/Asia/Kolkata"
@@ -188,7 +188,7 @@ workflows:
     jobs:
       - build-prod:
           name: build-prod
-          #svc: "shm"
+          svc: "decklingo"
           filters:
             branches:
               only: main
