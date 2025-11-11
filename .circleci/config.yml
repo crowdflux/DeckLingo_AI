@@ -69,8 +69,8 @@ jobs:
           name: Build docker image (decklingo-ai/<<parameters.svc>>)
           command: |
             docker build \
-              -t playment/decklingo-ai/<<parameters.svc>>:latest \
-              -f ./decklingo-ai/services/<<parameters.svc>>/Dockerfile \
+              -t decklingo-ai/<<parameters.svc>>:latest \
+              -f ./Dockerfile \
               .
           no_output_timeout: 30m
 
