@@ -46,7 +46,7 @@ jobs:
     parameters:
       svc:
         type: string
-        default: "shm"
+        #default: "shm"
     working_directory: ~/project
     environment:
       TZ: "/usr/share/zoneinfo/Asia/Kolkata"
@@ -66,11 +66,11 @@ jobs:
               | docker login --username AWS --password-stdin 475757276268.dkr.ecr.ap-south-1.amazonaws.com
 
       - run:
-          name: Build docker image (solutions-apis/<<parameters.svc>>)
+          name: Build docker image (decklingo-ai/<<parameters.svc>>)
           command: |
             docker build \
-              -t playment/solutions-apis/<<parameters.svc>>:latest \
-              -f ./solutions-apis/services/<<parameters.svc>>/Dockerfile \
+              -t playment/decklingo-ai/<<parameters.svc>>:latest \
+              -f ./decklingo-ai/services/<<parameters.svc>>/Dockerfile \
               .
           no_output_timeout: 30m
 
@@ -85,9 +85,9 @@ jobs:
             TRANSFORMED_CIRCLE_BRANCH="$(echo "$CIRCLE_BRANCH" | sed -e 's#/#-#g')"
             IMAGE_TAG="${TRANSFORMED_CIRCLE_BRANCH}-<< pipeline.number >>"
 
-            docker tag playment/solutions-apis/<<parameters.svc>>:latest \
-              475757276268.dkr.ecr.ap-south-1.amazonaws.com/playment/solutions-apis/<<parameters.svc>>:${IMAGE_TAG}
-            docker push 475757276268.dkr.ecr.ap-south-1.amazonaws.com/playment/solutions-apis/<<parameters.svc>>:${IMAGE_TAG}
+            docker tag playment/decklingo-ai/<<parameters.svc>>:latest \
+              475757276268.dkr.ecr.ap-south-1.amazonaws.com/playment/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
+            docker push 475757276268.dkr.ecr.ap-south-1.amazonaws.com/playment/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
 
             {
               echo "IMAGE_TAG=${IMAGE_TAG}"
@@ -95,7 +95,7 @@ jobs:
             } > "$STATE_DIR/env"
 
       - run:
-          name: Bump image tag in play-kube (solutions-apis)
+          name: Bump image tag in play-kube (decklingo-ai)
           command: |
             set -e
             ROOT_DIR="$(pwd)"
@@ -103,7 +103,7 @@ jobs:
             . "$STATE_DIR/env"
 
             git clone "https://${GITHUB_TOKEN}@github.com/crowdflux/play-kube.git"
-            cd play-kube/charts/solutions-apis
+            cd play-kube/charts/decklingo-ai
 
             # Update only the tag field (repo unchanged)
             sed -i "s/tag: [^ ]*/tag: ${IMAGE_TAG}/" values.yaml
@@ -115,7 +115,7 @@ jobs:
               echo "No changes to commit."
             else
               git add values.yaml
-              git commit -m "solutions-apis: <<parameters.svc>> tag -> ${IMAGE_TAG}"
+              git commit -m "decklingo-ai: <<parameters.svc>> tag -> ${IMAGE_TAG}"
               # Push with basic retry
               for i in 1 2 3 4 5; do
                 if git pull --rebase origin master && git push "https://${GITHUB_TOKEN}@github.com/crowdflux/play-kube.git" master; then
@@ -177,18 +177,18 @@ jobs:
               --skip-test-tls
 
             # Refresh & sync the app
-            argocd app get solutions-apis --refresh
-            if ! argocd app sync solutions-apis; then
+            argocd app get decklingo-ai --refresh
+            if ! argocd app sync decklingo-ai; then
               echo "Sync failed, but continuing to let pipeline finish."
             fi
 
 workflows:
   version: 2
-  deploy-shm-prod:
+  deploy:
     jobs:
       - build-prod:
           name: build-prod
-          svc: "shm"
+          #svc: "shm"
           filters:
             branches:
               only: main
