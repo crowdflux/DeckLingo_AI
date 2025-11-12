@@ -53,9 +53,9 @@ jobs:
             TRANSFORMED_CIRCLE_BRANCH="$(echo "$CIRCLE_BRANCH" | sed -e 's#/#-#g')"
             IMAGE_TAG="${TRANSFORMED_CIRCLE_BRANCH}-<< pipeline.number >>"
 
-            docker tag decklingo-ai/<<parameters.svc>>:latest \
-              475757276268.dkr.ecr.ap-south-1.amazonaws.com/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
-            docker push 475757276268.dkr.ecr.ap-south-1.amazonaws.com/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
+            docker tag decklingo-ai:latest \
+              475757276268.dkr.ecr.ap-south-1.amazonaws.com/decklingo-ai:${IMAGE_TAG}
+            docker push 475757276268.dkr.ecr.ap-south-1.amazonaws.com/decklingo-ai:${IMAGE_TAG}
 
             {
               echo "IMAGE_TAG=${IMAGE_TAG}"
