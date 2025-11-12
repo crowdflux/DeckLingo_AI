@@ -54,8 +54,8 @@ jobs:
             IMAGE_TAG="${TRANSFORMED_CIRCLE_BRANCH}-<< pipeline.number >>"
 
             docker tag playment/decklingo-ai/<<parameters.svc>>:latest \
-              475757276268.dkr.ecr.ap-south-1.amazonaws.com/playment/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
-            docker push 475757276268.dkr.ecr.ap-south-1.amazonaws.com/playment/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
+              475757276268.dkr.ecr.ap-south-1.amazonaws.com/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
+            docker push 475757276268.dkr.ecr.ap-south-1.amazonaws.com/decklingo-ai/<<parameters.svc>>:${IMAGE_TAG}
 
             {
               echo "IMAGE_TAG=${IMAGE_TAG}"
