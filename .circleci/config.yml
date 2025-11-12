@@ -22,8 +22,7 @@ jobs:
       AWS_ROLE_ARN: arn:aws:iam::475757276268:role/circleci
     steps:
       - checkout
-      - skip_if_no_changes_in_solutions_apis
-
+      
       - aws-cli/setup:
           role_arn: $AWS_ROLE_ARN
           role_session_name: circleci-oidc-session
