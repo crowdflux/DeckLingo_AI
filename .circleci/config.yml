@@ -62,45 +62,45 @@ jobs:
               echo "SYNC_REQUIRED=false"
             } > "$STATE_DIR/env"
 
-      - run:
-          name: Bump image tag in play-kube (decklingo-ai)
-          command: |
-            set -e
-            ROOT_DIR="$(pwd)"
-            STATE_DIR="$ROOT_DIR/.ci_state"
-            . "$STATE_DIR/env"
+      # - run:
+      #     name: Bump image tag in play-kube (decklingo-ai)
+      #     command: |
+      #       set -e
+      #       ROOT_DIR="$(pwd)"
+      #       STATE_DIR="$ROOT_DIR/.ci_state"
+      #       . "$STATE_DIR/env"
 
-            git clone "https://${GITHUB_TOKEN}@github.com/crowdflux/play-kube.git"
-            cd play-kube/charts/decklingo-ai
+      #       git clone "https://${GITHUB_TOKEN}@github.com/crowdflux/play-kube.git"
+      #       cd play-kube/charts/decklingo-ai
 
-            # Update only the tag field (repo unchanged)
-            sed -i "s/tag: [^ ]*/tag: ${IMAGE_TAG}/" values.yaml
+      #       # Update only the tag field (repo unchanged)
+      #       sed -i "s/tag: [^ ]*/tag: ${IMAGE_TAG}/" values.yaml
 
-            git config user.email "tii_tiai_cv_devops@telusinternational.com"
-            git config user.name "devops-telus"
+      #       git config user.email "tii_tiai_cv_devops@telusinternational.com"
+      #       git config user.name "devops-telus"
 
-            if git diff --quiet; then
-              echo "No changes to commit."
-            else
-              git add values.yaml
-              git commit -m "decklingo-ai: <<parameters.svc>> tag -> ${IMAGE_TAG}"
-              # Push with basic retry
-              for i in 1 2 3 4 5; do
-                if git pull --rebase origin master && git push "https://${GITHUB_TOKEN}@github.com/crowdflux/play-kube.git" master; then
-                  echo "Pushed values.yaml update."
-                  # Mark sync required in absolute state path
-                  sed -i 's/^SYNC_REQUIRED=.*/SYNC_REQUIRED=true/' "$STATE_DIR/env" || echo "SYNC_REQUIRED=true" >> "$STATE_DIR/env"
-                  break
-                fi
-                echo "Push failed, retrying in 5s... ($i/5)"
-                sleep 5
-              done
-            fi
+      #       if git diff --quiet; then
+      #         echo "No changes to commit."
+      #       else
+      #         git add values.yaml
+      #         git commit -m "decklingo-ai: <<parameters.svc>> tag -> ${IMAGE_TAG}"
+      #         # Push with basic retry
+      #         for i in 1 2 3 4 5; do
+      #           if git pull --rebase origin master && git push "https://${GITHUB_TOKEN}@github.com/crowdflux/play-kube.git" master; then
+      #             echo "Pushed values.yaml update."
+      #             # Mark sync required in absolute state path
+      #             sed -i 's/^SYNC_REQUIRED=.*/SYNC_REQUIRED=true/' "$STATE_DIR/env" || echo "SYNC_REQUIRED=true" >> "$STATE_DIR/env"
+      #             break
+      #           fi
+      #           echo "Push failed, retrying in 5s... ($i/5)"
+      #           sleep 5
+      #         done
+      #       fi
 
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .ci_state
+      # - persist_to_workspace:
+      #     root: .
+      #     paths:
+      #       - .ci_state
 
   # deploy-prod:
   #   docker:
