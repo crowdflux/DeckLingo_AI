@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DeckLingo AI - User Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --purple:#4B286D;
+      --purple-700:#4B286D;
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#4e4a57;
+      --border:#e6e2f5;
+      --row:#fbf9ff;
+    }
+    body{margin:0; font-family:"Poppins",sans-serif; background:#fff; color:var(--text); line-height:1.6}
+    header{background:linear-gradient(135deg,var(--purple-700),var(--purple)); color:#fff; padding:28px 20px; border-bottom:4px solid #f3ebff; text-align:center}
+    .brand{display:flex; align-items:center; justify-content:center; gap:14px}
+    .brand img{height:44px; width:auto; display:block}
+    h1{margin:0; font-weight:700; font-size:32px; letter-spacing:.2px}
+    h2{color:var(--purple-700); font-size:22px; margin:0 0 10px}
+    .wrap{max-width:960px; margin:0 auto; padding:0 20px}
+    section{background:#fff; border:1px solid var(--border); border-radius:16px; padding:20px; margin:20px 0; box-shadow:0 6px 24px rgba(110,86,207,.08)}
+    .pill{display:inline-block; background:#f4edff; padding:6px 12px; border-radius:999px; border:1px solid var(--border); margin:4px 6px; font-weight:600; font-size:14px}
+
+    /* Language table (purple & white) */
+    table{width:100%; border-collapse:separate; border-spacing:0; table-layout:fixed; overflow:hidden; border-radius:12px; box-shadow:0 2px 10px rgba(110,86,207,.06)}
+    .lang-table{margin:24px 0; border:1px solid #e5dcff; border-radius:16px; overflow:hidden;}
+    thead th{background:linear-gradient(180deg,#efe8ff,#e4d8ff); color:#4c3fa8; font-size:15px; font-weight:700; padding:14px}
+    th,td{padding:14px 16px; font-size:14px}
+    tbody tr:nth-child(odd){background:#fbf8ff}
+    tbody tr:nth-child(even){background:#ffffff}
+    tbody tr+tr td{border-top:1px solid #eee8ff}
+    td+td, th+th{border-left:1px solid #eee8ff}
+    tbody tr:hover td{background:#3B1F53}
+
+    .token-note{border-left:4px solid var(--purple); background:#f9f6ff; padding:12px 14px; border-radius:12px}
+  </style>
+<style>
+.reverse-note{display:block;margin-top:12px;font-size:0.95rem;line-height:1.55;color:#4B286D;background:transparent;padding:0;border-radius:0}
+/* Brand color */
+:root{--brand-purple:#4B286D;}
+</style>
+
+<style>
+.reverse-note{display:block;margin-top:16px;color:inherit;background:none !important;padding:0 !important;border:0 !important;}
+.reverse-note strong{font-weight:700;background:none !important;}
+</style>
+
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="logo.png" alt="TELUS Digital Logo" class="logo" />
+      <h1>DeckLingo AI - User Guide</h1>
+    </div>
+    <p class="tagline">Translate your sales & solutions decks into native local languages ✨</p>
+  </header>
+
+  <main class="wrap">
+
+    <section>
+      <h2>Supported Languages</h2>
+      <span class="pill">English</span>
+      <span class="pill">Korean</span>
+      <span class="pill">Japanese</span>
+      <span class="pill">Chinese (Simplified)</span>
+    </section>
+
+    <section>
+      <h2>Language Directions</h2>
+      <table class="lang-table">
+        <thead>
+          <tr><th>Language</th><th>Translation Available To</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Korean</td><td>English, Japanese, Chinese (Simplified)</td></tr>
+          <tr><td>English</td><td>Korean, Japanese</td></tr>
+          <tr><td>Japanese</td><td>Korean, English</td></tr>
+          <tr><td>Chinese (Simplified)</td><td>Korean</td></tr>
+        </tbody>
+      </table>
+       <p class="reverse-note" style="margin-top:16px;">
+        Reverse directions are supported, e.g., <strong>Korean → English</strong> and <strong>Japanese → Korean</strong>.<br>
+        Chinese (Simplified) is reached via routed chain <strong>English → Korean → Chinese</strong>.
+       </p>
+
+      
+    </section>
+
+    <section>
+      <h2>Supported File Formats</h2>
+      <ul>
+        <li><strong>PPTX</strong> — PowerPoint Slides</li>
+        <li><strong>DOCX</strong> — Word Documents</li>
+        <li><strong>PDF</strong></li>
+      </ul>
+      <p><strong>Maximum file size:</strong> 100&nbsp;MB.</p>
+    </section>
+
+    <section>
+      <h2>How to Translate</h2>
+      <ol>
+        <li>Open DeckLingo AI.</li>
+        <li>Upload your file (<strong>PPTX</strong>, <strong>DOCX</strong>, or <strong>PDF</strong>).</li>
+        <li>Select <strong>Source Language</strong> — the language your original PPT/document is in.</li>
+        <li>Select <strong>Target Language</strong>.</li>
+        <li>Click <strong>Translate</strong>.</li>
+        <li>Your translated file will download automatically.</li>
+      </ol>
+      <div class="token-note"><strong>Please use it carefully:</strong> we are charged for tokens per translation.</div>
+    </section>
+
+    <section>
+      <h2>Demo Video</h2>
+      <video controls preload="metadata" width="100%" style="border:1px solid var(--border); border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.06)" playsinline>
+        <source src="decklingo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <footer>
+      © TELUS Digital — DeckLingo AI
+    </footer>
+  </main>
+</body>
+</html>
+
+<style>.reverse-note strong{background:none;padding:0;border-radius:0}</style>
